@@ -19,7 +19,7 @@ class County(object):
 
 #averageTemps = []
 values = []
-workbook = xlsxwriter.Workbook('Expenses05.xlsx')
+workbook = xlsxwriter.Workbook('Temps05.xlsx')
 worksheet = workbook.add_worksheet()
 rowCounter = []
 
@@ -56,7 +56,7 @@ def getTemps(state:int, year:int, month: int):
 def singleMonth(year:int, month:int):
 	getTemps(1, year, month)
 	for i in range(1, 30): #ALASKA
-		#averageTemps.append("")
+
 		values.append("")
 		print("")
 	for i in range(2, 8):
@@ -73,24 +73,10 @@ def singleMonth(year:int, month:int):
 	for i in range(0, len(values)):
 		worksheet.write(i, len(rowCounter), values[i])
 	rowCounter.append(month)
-"""getTemps(18)
-for i in range(19, 49):
-	getTemps(i)"""
-#f = open("averageTemp.txt", "w+")
-#f.write('\n'.join(str(p) for p in values))
-#f.close()
-#print(values)
-#averageTempsStr = '\n'.join(str(p) for p in averageTemps)
-#pyperclip.copy(averageTempsStr)
+
 try:
 	singleMonth(2010, 101)
-	"""for j in range(112, 100, -1):
-		singleMonth(2005, j)
-		values = []"""
 except Exception as e:
 	print("Error error\n" + str(e))
-#valuesStr = '\n'.join(str(p) for p in values)
-#pyperclip.copy(valuesStr)
-#col = 0
-#worksheet.write(row, column, "thing to write")
+
 workbook.close()
